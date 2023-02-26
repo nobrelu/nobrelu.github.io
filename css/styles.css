@@ -247,6 +247,15 @@ text-decoration: none;
     font-size: 32px;
     color:var(--main-color);
 }
+#edu-section-title {
+    
+    padding-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #31302C;
+}
+
+
 
 #cert-section-title {
     border-bottom: 1px dotted var(--border-color);
@@ -294,6 +303,21 @@ text-decoration: none;
     box-shadow: 3px 5px var(--border-color);
     text-decoration: none;
     transition: .5s;
+
+}
+
+
+#hardsoft-box {
+    flex: 1 1 49%;
+    max-width: 48%;
+    margin: 5px;
+    padding: 10px;
+    background-color: var(--cert-bg-color);
+    border: 1px solid var(--cert-border-color);
+    border-radius: 2%;
+    text-align: center;
+    box-shadow: 3px 5px var(--cert-border-color);
+    text-decoration: none;
 
 }
 
@@ -384,6 +408,8 @@ box-shadow: 0 8px 6px -6px rgb(223, 223, 223);
     padding-left: 10px;
     border-left: 5px solid var(--btn-color);
 }
+
+
 
 #skills-box i {
     font-size: 35px;
@@ -497,6 +523,8 @@ box-shadow: 0 8px 6px -6px rgb(223, 223, 223);
     padding: 5px;
 }
 
+
+
 /* The actual timeline (the vertical ruler) */
 .timeline::after {
     content: '';
@@ -584,6 +612,40 @@ box-shadow: 0 8px 6px -6px rgb(223, 223, 223);
     border: 2px solid #7A796F;
     font-size: 12px;
     color: #494842;
+}
+
+.content-education {
+    padding: 10px ;
+    background-color: #8c9d75;
+    
+   
+    
+    border-radius: 6px;
+    margin: 1px;
+
+    font-size: 12px;
+    color: #f5f2df;
+}
+
+.content-education .intern {
+   
+    background-color: #F5F2DF;
+    color:#494842;
+
+}
+
+#edu-box {
+    flex: 1 1 40%;
+    max-width: 40%;
+    margin: 5px;
+    padding: 5px;
+    background-color: var(--cert-bg-color);
+    border: 1px solid var(--cert-border-color);
+    border-radius: 2%;
+    
+    box-shadow: 3px 5px var(--cert-border-color);
+    text-decoration: none;
+
 }
 
 .content .intern {
@@ -938,27 +1000,114 @@ background: rgb(35, 47, 61);
 
 /* Container for skill bars */
 .container2 {
-    width: 100%;
+    margin: 5px;
+    display: inline-flex;
+    width: 70%;
     /* Full width */
-    background-color: #ddd;
+    background-color: #DCD9C8;
+    border: 1px solid #DCD9C8;
     /* Grey background */
 }
 
+.skill-section-title {
+
+    padding-top: 0px;
+    margin: 4px;
+    font-size: 14px;
+        display: inline-flex;
+            width: 70%;
+    font-weight: 400;
+    text-align: left;
+    color: #31302C;
+}
+
 .skills {
-    text-align: right;
+    text-align: center;
     /* Right-align text */
-    padding-top: 10px;
+    padding-top: 5px;
     /* Add top padding */
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     /* Add bottom padding */
     color: white;
     /* White text color */
-    height: 20px;
+    height: 15px;
 }
 
-.html {
+
+/* hard skill*/
+
+.muitoalto {
     width: 90%;
-    background-color: #04AA6D;
+    background-color: #8c9d75;
+}
+
+.alto {
+    width: 80%;
+    background-color: #8c9d75;
+}
+
+.intermediario {
+    width: 60%;
+    background-color: #8c9d75;
+}
+
+.baixo {
+    width: 45%;
+    background-color: #8c9d75;
+}
+
+.muitobaixo {
+    width: 30%;
+    background-color: #8c9d75;
+}
+
+
+
+/* soft skill*/
+
+.iniciativa {
+    width: 89%;
+    background-color: #769E3A;
+}
+
+.autonomia {
+    width: 86%;
+    background-color: #769E3A;
+}
+
+.colaboracao {
+    width: 92%;
+    background-color: #769E3A;
+}
+
+.comunicacao {
+    width: 83%;
+    background-color: #769E3A;
+}
+
+.aprendizagem {
+    width: 96%;
+    background-color: #769E3A;
+}
+
+.capacidadeanalitica {
+    width: 92%;
+    background-color: #769E3A;
+}
+
+.pensamentoconceitual {
+    width: 85%;
+    background-color: #769E3A;
+}
+
+.pensamentocriativo {
+    width: 85%;
+    background-color: #769E3A;
+}
+
+.planejamentoorganizacao {
+    width: 90%;
+    background-color: #769E3A;
 }
 
 /* Green */
@@ -986,9 +1135,4 @@ background: rgb(35, 47, 61);
 
 
 
-
-
-
-
-
-
+/* -------------------------------------------------------- */
