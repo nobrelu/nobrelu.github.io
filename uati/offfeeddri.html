@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>PDI ITAU</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fc19e474-5fdb-4ee0-b697-36827d1a0b8c" class="page sans"><header><h1 class="page-title">PDI ITAU</h1></header><div class="page-body"><p id="257a2d5c-37e6-4e4b-95a5-59cc5bbabe8a" class="">s</p><p id="b4f935e3-f24b-4bbc-99c3-aef4a3d76c2c" class="">
+</p><div id="367d4f9d-f90f-4104-bb86-f2212b7c2b8d" class="collection-content"><h4 class="collection-title">Feedback</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Ano</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Person</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Função</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Contexto</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Análise</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>Date</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Plano</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Ações</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Anotações</th></tr></thead><tbody><tr id="7a7f0750-4bbb-40f7-8982-30cfee5b90ad"><td class="cell-title"><a href="https://www.notion.so/aaa-7a7f07504bbb40f7898230cfee5b90ad">aaa</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-red">2021</span></td><td class="cell-vG^_"></td><td class="cell-M}]&gt;"></td><td class="cell-hphW"></td><td class="cell-aUi@"></td><td class="cell-LCAB"></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="f112038b-5d55-4851-a181-a4e9a45531e2"><td class="cell-title"><a href="https://www.notion.so/bbbb-f112038b5d554851a181a4e9a45531e2">bbbb</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-orange">2022</span></td><td class="cell-vG^_"></td><td class="cell-M}]&gt;"></td><td class="cell-hphW"></td><td class="cell-aUi@"></td><td class="cell-LCAB"></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="10824254-f303-4adb-83a8-a8bcc5cbb5e1"><td class="cell-title"><a href="https://www.notion.so/10824254f3034adb83a8a8bcc5cbb5e1">Untitled</a></td><td class="cell-A]L:"></td><td class="cell-vG^_"></td><td class="cell-M}]&gt;"></td><td class="cell-hphW"></td><td class="cell-aUi@"></td><td class="cell-LCAB"></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="f8da2ff3-e967-4e7c-86a7-e5d58cc70ccb"><td class="cell-title"><a href="https://www.notion.so/DSFDSFDSFDSFSDF-f8da2ff3e9674e7c86a7e5d58cc70ccb">DSFDSFDSFDSFSDF</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-red">2021</span></td><td class="cell-vG^_"></td><td class="cell-M}]&gt;"></td><td class="cell-hphW"></td><td class="cell-aUi@"></td><td class="cell-LCAB"></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="bbb2061f-1cec-4094-8918-4bce6a6774a8"><td class="cell-title"><a href="https://www.notion.so/Nervosismo-bbb2061f1cec409489184bce6a6774a8">Nervosismo</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Lilian Faria</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-blue">Coordenação</span></td><td class="cell-hphW">Apresentação do meu currículo para vaga de Engenharia de Dados na coordenação do Vinicius Lara. Fiz um powerpoint sobre mim profissionalmente.</td><td class="cell-aUi@">Não estava me sentindo nervosa. No máximo, pude parecer quando o Vinicius ficou me interrompendo,  mas eu consegui voltar de onde parei facilmente. Inicialmente, penso que me viram nervosa, pois eu falo rápido, seja pela sotaque ou velocidade cognitiva. </td><td class="cell-LCAB"><time>@March 3, 2023</time></td><td class="cell-\NMy">1- Praticar falar mais devagar
+2- Fazer cursos no udemy envolvendo comunicação, oratória e audiência.
+3- Analisar as minhas principais apresentações gravadas dentro do itaú.</td><td class="cell-yd@n">1- Curso: <a href="https://www.notion.so/f0150185bafa48439c2714d7c30a054d">Oratória: Pare de parecer nervoso falando em público</a></td><td class="cell-iXF_"></td></tr><tr id="ef86c79f-41cc-4d49-81e1-addd1bb277ed"><td class="cell-title"><a href="https://www.notion.so/Avalia-o-2022-ef86c79f41cc4d4981e1addd1bb277ed">Avaliação 2022</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-orange">2022</span></td><td class="cell-vG^_">Eu</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-gray">Eixo Y</span></td><td class="cell-hphW">“O ano de 2022 foi uma evolução e desenvolvimento muito grande, rápida e extremamente positiva. Acredito que as adversidades me fizeram observar meus melhores pontos positivos e como eles são e podem ser um grande diferencial junto à cultura itubers. Foi um ciclo que aprendi mais, entreguei com autonomia, eficácia e liderança. E fui referência em compartilhar conhecimento e ajudar a comunidade.”</td><td class="cell-aUi@"></td><td class="cell-LCAB"><time>@December 31, 2022</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="4ea829c0-1409-4670-886e-7a987779a8a1"><td class="cell-title"><a href="https://www.notion.so/Avalia-o-2022-4ea829c014094670886e7a987779a8a1">Avaliação 2022</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-orange">2022</span></td><td class="cell-vG^_">Gestor</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-gray">Eixo Y</span></td><td class="cell-hphW">“Buscou conhecimento técnicos, dos processos e das esteiras do Itaú e foi fundamental para as demandas. Precisa buscar ter uma visão crítica para serem construtivas, na resiliência com foco nos objetivos da Squad/RT e no trabalho em equipe em momentos de turbulência nas demanda.”</td><td class="cell-aUi@">Tem uma página especial para as coisas que o gestor me disse.</td><td class="cell-LCAB"><time>@December 31, 2022</time></td><td class="cell-\NMy">Infelizmente, dado quem é a pessoa e o profissional que redigiu esse comentário não há porque considera-lo. Caso houvesse algo construtivo, poderia ver como pontos de melhoria.</td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="2e82ac94-97b9-449e-baf6-21fb02701171"><td class="cell-title"><a href="https://www.notion.so/Avalia-o-2022-2e82ac9497b9449ebaf621fb02701171">Avaliação 2022</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-orange">2022</span></td><td class="cell-vG^_">Par/Parceiro</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-gray">Eixo Y</span></td><td class="cell-hphW">“Luciana teve um ano simplesmente fantástico, ela conseguiu desempenhar um papel de ownership em relação a migração de workload que foi simplesmente fundamental para o controle e eficácia da entrega desse projeto, conseguiu conduzir o time da melhor forma, se comunicou muito bem e conseguiu engajar todos que estavam com ela para alcançar os targets necessários. A Luciana fez acontecer nesse 2022.”</td><td class="cell-aUi@">Comentário escrito pelo Sandro,  TL da Squad, o qual passou o ano comigo e observou minha evolução desde a última avaliação. Realmente. assumo esse papel de ownership, no qual conduzi a melhor forma do projeto, com ótimos feedbacks de trabalho em equipe, e entregamos no prazo*, além de comunicar com várias squads e compartilhar conhecimento seja na minha squad bem como em outras.</td><td class="cell-LCAB"><time>@December 31, 2022</time></td><td class="cell-\NMy">Não identificado pontos de melhoria.</td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="a1131438-dc3b-4a32-b4dd-9d29b36f40cf"><td class="cell-title"><a href="https://www.notion.so/Avalia-o-2022-a1131438dc3b4a32b4dd9d29b36f40cf">Avaliação 2022</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-orange">2022</span></td><td class="cell-vG^_">Par/Parceiro</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-gray">Eixo Y</span></td><td class="cell-hphW">“Ótima parceira de trabalho, sempre disposta a ajudar, tem autonomia no aprendizado e está em constante evolução, consegue ajudar as pessoas de todas as áreas e resolver problemas.”</td><td class="cell-aUi@">Tenho automonia no aprendizado
+Ajudo pessoas,
+Resolvo problemas.</td><td class="cell-LCAB"><time>@December 31, 2022</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="ddaa54ad-d441-4c2a-b74f-1da1ae9320d6"><td class="cell-title"><a href="https://www.notion.so/Avalia-o-2022-ddaa54add4414c2ab74f1da1ae9320d6">Avaliação 2022</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-orange">2022</span></td><td class="cell-vG^_">Par/Parceiro</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-gray">Eixo Y</span></td><td class="cell-hphW">“A Luciana se preocupa em resolver os problemas que são importantes para o Itaú independente de ser ou não problema da squad dela, são profissionais como ela que fazem o Itaú ser cada vez maior, ela é um exemplo a ser seguido.”</td><td class="cell-aUi@">Parece que sou um exemplo porque ajudei e compartilhei conhecimento, não somente na minha equipe, RT, comunidade, mas também em outras comunidades, olhando o Itaú como um  todo. 
+Ajudo pessoas.
+Resolvo problemas.
+Sou exemplo.</td><td class="cell-LCAB"><time>@December 31, 2022</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="e3034d2c-9ea3-4b3a-9d31-ae1039ee86f8"><td class="cell-title"><a href="https://www.notion.so/Avalia-o-2022-e3034d2c9ea34b3a9d31ae1039ee86f8">Avaliação 2022</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-orange">2022</span></td><td class="cell-vG^_">Par/Parceiro</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-gray">Eixo Y</span></td><td class="cell-hphW">“Ótima profissional que busca melhoria continua, sabe pedir ajuda quando precisa e também auxilia seus pares no dia-a-dia”</td><td class="cell-aUi@">Além de ajudar, eu também sei pedir ajuda. Adiciono também saber quando pedir ajuda, também tendo autonomia e independência ao mesmo tempo que sabemos que nunca saberemos de tudo.</td><td class="cell-LCAB"><time>@December 31, 2022</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="212df58e-7bc2-417a-83df-aba30ec37004"><td class="cell-title"><a href="https://www.notion.so/Avalia-o-2022-212df58e7bc2417a83dfaba30ec37004">Avaliação 2022</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-orange">2022</span></td><td class="cell-vG^_">Par/Parceiro</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-gray">Eixo Y</span></td><td class="cell-hphW">“Foi protagonista e referência na migração do CDP  na squad. Evoluiu e se destacou rapidamente.”</td><td class="cell-aUi@">Protagonismo
+Destaque
+Referência</td><td class="cell-LCAB"><time>@December 31, 2022</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="8754e4e8-ec18-4015-a5f1-3ca00c01fec0"><td class="cell-title"><a href="https://www.notion.so/Avalia-o-2022-8754e4e8ec184015a5f13ca00c01fec0">Avaliação 2022</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-orange">2022</span></td><td class="cell-vG^_">Par/Parceiro</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-blue">Coordenação</span></td><td class="cell-hphW">“Lu, você tem um potencial enorme. É  referência técnica para muitas pessoas, seja na squad e fora dela. Acredite nesse reconhecimento, confie em suas habilidades e traga cada vez mais uma postura protagonista na squad. “Puxe” mais desafios em 2023, pontue suas entregas e continue ajudando as pessoas (nessa ordem, pf). Pode sempre contar com o meu apoio e orientação. Abraços, VHT.”</td><td class="cell-aUi@">Hitoshi
+Potencial
+Referência
+Pena que não dá pra puxar “desafios/entregas” na RIC .</td><td class="cell-LCAB"><time>@December 31, 2022</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="955c1a95-5369-4e3a-bde9-e02e26f35448"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-955c1a9553694e3abde9e02e26f35448">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“Luciana, para mim você foi gentil, atenciosa e educada e persistiu até acharmos a solução do meu problema. É assim que a gente vai longe e conquista os objetivos. Está de parabéns”</td><td class="cell-aUi@">Não consigo identificar o autor/comunidade.</td><td class="cell-LCAB"><time>@January 2, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="a65362ad-d333-472d-99cc-c7f5b71fb6b3"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-a65362add333472d99ccc7f5b71fb6b3">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“Ituber Lu foi muito prestativa, educada, cordial e com muito conhecimento nos processos e sempre prestando atenção nos detalhes e super atenciosa. Nada a melhorar, foi tudo excelente. Muito obrigada pela atenção e ajuda.”</td><td class="cell-aUi@">Não consigo identificar o autor/comunidade.</td><td class="cell-LCAB"><time>@January 2, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="2c9e436d-ef6c-4806-9d26-4d5de821eef2"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-2c9e436def6c48069d264d5de821eef2">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“A Luciana é uma profissional muito solicíta, sempre pronta a ajudar e buscar as respostas necessárias. Além disso, está sempre buscando e compartilhando conhecimento, tenho somente elogios a ela.”</td><td class="cell-aUi@">Não consigo identificar o autor/comunidade.</td><td class="cell-LCAB"><time>@January 2, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="28de7087-9ecf-4859-9806-437f0b794876"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-28de70879ecf48599806437f0b794876">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“Luu, você é muito dedicada em tudo que faz e sempre disposta a ensinar, não media esforços para nos ensinar, aprendi bastante contigo. O modo que você conduzia as demandas e envolvia toda equipe foi muito bom, o trabalho em equipe foi o diferencial. Espero que continue assim, você vai longe, desejo muito sucesso”</td><td class="cell-aUi@">Provavelmente algum team member da DC1.</td><td class="cell-LCAB"><time>@January 2, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="95cf7541-4125-4a33-bbf1-f1e4926a0ac5"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-95cf754141254a33bbf1f1e4926a0ac5">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“Todas as vezes em que precisei de Luciana, ela foi super solícita e disposta a auxiliar. Inclusive, nas vezes em que não conseguia ajudar, procurou auxilio com outras pessoas. Não tivemos muitas interações, mas todas que tive me levam acreditar que Luciana é extremamente esforçada e competente.”</td><td class="cell-aUi@">Alguém que interagi mais de uma vez, mas não foram muitas. Acredito que deve ser o moço que esqueci o nome da Ric - Franqueamento</td><td class="cell-LCAB"><time>@January 3, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="d3daacc5-3de1-4938-946b-d6f2990f491b"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-d3daacc53de14938946bd6f2990f491b">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“Luuu, tu é uma mulher de muita luz. Não quero te propor nenhuma melhoria, pois te acho massa do jeitinho que você é. Muito competente e compartilha o que aprende com um notório prazer. Segue assim que certamente te veremos cada dia mais alto”</td><td class="cell-aUi@">Acho que foi a Ana.</td><td class="cell-LCAB"><time>@January 3, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="440c4461-6167-40f8-9929-866cf89b365e"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-440c4461616740f89929866cf89b365e">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“Gosta da maneira como se expressa sua espontaneidade é genuína, as palavras que usa na hora de explicar algo são de fácil entendimento e acaba deixando aquilo que parecia difícil entendimento com você acaba ficando mais fácil acesso (você é muito para explicar processos e replicar seu conhecimento). Através da pro atividade consegue demonstrar conhecimento técnico para alguns assuntos, trata os impedimentos dos seus colegas como se fossem seus, esta sempre disposta a compartilhar conhecimento (não vejo ponto de melhoria ainda, mas para não passar em branco vou escrever algo). Você tem conhecimento técnico, tome as frentes e carimbe o seu nome nelas para as proximas entregas tenham a sua marca e todos possam reconhecer suas entregas (se joga). O que a torna uma colaboradora excepcional Sem duvidas suas soft skills e hard skiklls vao levar longe. Abraço JM.”</td><td class="cell-aUi@">Quem é JM? Jacque?</td><td class="cell-LCAB"><time>@January 6, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="3ed4ea8e-3efd-48a8-8bd7-c50b58cf0a40"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-3ed4ea8e3efd48a88bd7c50b58cf0a40">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“Sabe compartilhar conhecimento, muito parceira para trabalhos em equipe”</td><td class="cell-aUi@"></td><td class="cell-LCAB"><time>@January 27, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="53683466-4d4a-4ac5-b143-4f80dc89f50e"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-536834664d4a4ac5b1434f80dc89f50e">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“Das pessoas que conversei no banco, foi a mais prestativa, me ajudou em dificuldades que estava tendo na criação de PR. Se pudesse dar uma nota seria 10”</td><td class="cell-aUi@"></td><td class="cell-LCAB"><time>@March 17, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="8b11d675-d9b1-44bc-aa50-f9dad37757f1"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-8b11d675d9b144bcaa50f9dad37757f1">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“Você foi muito atenciosa e prestativa, ajudou com nossas dúvidas e ensinou fazer os testes como era necessário, além disso foi paciente pois não sabiamos muito tanto sobre o assunto quanto as ferramentas que preciariamos usar.”</td><td class="cell-aUi@">Foi um rapaz da PUC que tinha alguns workloads para migrar.</td><td class="cell-LCAB"><time>@March 22, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="4df925cb-a1a6-496b-8416-7f25518daecd"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-4df925cba1a6496b84167f25518daecd">Formulário Feedback</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Anônimo</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-default">Anônimo</span></td><td class="cell-hphW">“Lu tem um bom conhecimento técnico, trabalha fácil em equipe e é muito colaborativa e comunicativa”</td><td class="cell-aUi@">Não faço ideia quem seja. Alguém da equipe, qual?</td><td class="cell-LCAB"><time>@April 5, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="fb69acd7-171a-42f4-9774-f67725c32710"><td class="cell-title"><a href="https://www.notion.so/Formul-rio-Feedback-fb69acd7171a42f49774f67725c32710">Formulário Feedback</a></td><td class="cell-A]L:"></td><td class="cell-vG^_"></td><td class="cell-M}]&gt;"></td><td class="cell-hphW"></td><td class="cell-aUi@"></td><td class="cell-LCAB"></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="87412b8b-5c82-41f2-8337-1a86fc2563b8"><td class="cell-title"><a href="https://www.notion.so/Como-a-Ro-me-v-87412b8b5c8241f283371a86fc2563b8">Como a Ro me vê</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Roberta</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-brown">Team Member</span></td><td class="cell-hphW">Perguntei para ela o quanto ela me conhece e qual seria a minha ambição, dado que ela é a pessoa que mais converso esse lado.
+Ela disse que Me vê com muita ansia em subir a carreira, ter nome, ser referência, que me incomoda ficar parada, não quer só ter um salário, mas quero ser útil.</td><td class="cell-aUi@">Confere com o meu proposito que escrevi no pdi há um tempo. Não quero nenhum prêmio nobel, mas uma referencia de ser exemplo sim. E não é pelo dinheiro, é pela mudança.</td><td class="cell-LCAB"><time>@May 12, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr><tr id="2aeab6c6-6b5b-46cf-9a08-a57365f063b0"><td class="cell-title"><a href="https://www.notion.so/PDCA-2aeab6c66b5b46cf9a08a57365f063b0">PDCA</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Farley</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-brown">Team Member</span></td><td class="cell-hphW">Apresentei o PDCA, que era a vez da Joelma, então foi de surpresa. Farley e Roberta me instruíram um pouco e forneceram conhecimento de como realizar as extrações dos indicadores. Apresentei e, como fator surpresa, a Gerente Graciela estava presente e fez algumas perguntas. </td><td class="cell-aUi@">Segundo o Farley, transpareci estar bem tranquila, quanto tiveram perguntas, pensei e respondi rápido, passando segurança também. Então, por isso, ele achou que fui muito bem. Estava dominando o assunto mesmo tendo começado a montar o material em cima.</td><td class="cell-LCAB"><time>@May 16, 2023</time></td><td class="cell-\NMy">Creio que me sai bem, dada a surpresa da apresentação em si, prática de apresentar PDCA que não tinha, bem como responder perguntas inesperadas. E o principal, tive momentos que estava me sentindo realmente com fala calma e plena, mas é minha percepção, então como ação rever o vídeo.</td><td class="cell-yd@n">Seguir com o plano de aproveitar oportunidades de desenvolver minha comunicação, que é um processo contínuo sem prazo de término na vida.
+1- Rever o vídeo para analisar minha calma, fala, pontos de melhoria.</td><td class="cell-iXF_"></td></tr><tr id="713e948e-c2cb-4684-869a-2e9d2b7b447b"><td class="cell-title"><a href="https://www.notion.so/PDCA-713e948ec2cb4684869a2e9d2b7b447b">PDCA</a></td><td class="cell-A]L:"><span class="selected-value select-value-color-purple">2023</span></td><td class="cell-vG^_">Eu</td><td class="cell-M}]&gt;"><span class="selected-value select-value-color-orange">Eu</span></td><td class="cell-hphW">Diante da apresentação do PDCA, devo assistir a gravação e por seguinte tirar pontos positivos e melhorias em minha comunicação e como minha audiência pode me perceber.</td><td class="cell-aUi@"></td><td class="cell-LCAB"><time>@May 17, 2023</time></td><td class="cell-\NMy"></td><td class="cell-yd@n"></td><td class="cell-iXF_"></td></tr></tbody></table></div><figure id="2f3b37f7-4cbb-4ea9-b49f-d16212ce69d4" class="link-to-page"><a href="https://www.notion.so/Pdis-entregas-2f3b37f74cbb4ea9b49fd16212ce69d4">Pdis entregas</a></figure></div></article></body></html>
